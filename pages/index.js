@@ -14,9 +14,6 @@ import classes from '../styles/Home.module.css';
 export const getStaticProps = getStaticPokemonByGen(1);
 
 export default function Home({ pokemon }) {
-  return (
-    <div>Hello! My name is Michael</div>
-  )
 
   const { deck, clearDeck, downloadDeck, randomizeDeck, fetchDeck, toggleHandler, isSelected } =
     useDeck();
@@ -28,28 +25,26 @@ export default function Home({ pokemon }) {
       <section id="deck" className={classes.deckContainer}>
         <h2>Deck</h2>
 
-        {/* It would be cool to have some actions here... */}
-        {/* <div className={classes.actions}>
+        <div className={classes.actions}>
           <RandomizeAction onClick={randomizeDeck(pokemon)} />
           <DownloadAction onClick={downloadDeck} />
           <ClearAction onClick={clearDeck} />
-        </div> */}
+        </div>
 
         {/* This is a cool feature for loading a friends deck! */}
-        {/* <DeckForm className={classes.deckForm} fetchDeck={fetchDeck} /> */}
+        <DeckForm className={classes.deckForm} fetchDeck={fetchDeck} />
 
         <div ref={ref} className={classes.deck}>
-          {/* Where are my cards? */}
-          {/* <PokemonCards>
+           <PokemonCards>
             {deck?.map((p, i) => (
               <Card key={p?.id || `index${i}`} pokemon={p} onClick={toggleHandler(p)} isSelected />
             ))}
-          </PokemonCards> */}
+          </PokemonCards>
         </div>
       </section>
 
       {/* Show me some pokemon cards! */}
-      {/* <PokemonCards>
+      <PokemonCards>
         {pokemon?.map((p) => (
           <Card
             key={p.id}
@@ -60,7 +55,7 @@ export default function Home({ pokemon }) {
             isSelected={isSelected(p)}
           />
         ))}
-      </PokemonCards> */}
+      </PokemonCards>
 
       {/* This is a cool feature for when you scroll and still want to see your deck! */}
       {/* {!isDeckOnScreen && (
